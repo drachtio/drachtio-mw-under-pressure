@@ -1,6 +1,6 @@
 const { eventLoopUtilization } = require('node:perf_hooks').performance;
 const { monitorEventLoopDelay } = require('node:perf_hooks');
-const debug = require('debug')('jambonz:mw-registrar');
+const debug = require('debug')('drachtio:under-pressure');
 
 /**
  * This middleware works by intercepting imcoming SIP message leverages
