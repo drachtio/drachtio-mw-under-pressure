@@ -1,0 +1,30 @@
+{
+  "name": "drachtio-mw-under-pressure",
+  "version": "0.0.1",
+  "description": "This middleware works by intercepting imcoming SIP message leverages the Node.js event loop mechanism and monitors key performance indicators like the event loop delay, heap memory usage, and RSS bytes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jslint": "eslint app.js lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drachtio/drachtio-mw-under-pressure.git"
+  },
+  "keywords": [
+    "drachtio"
+  ],
+  "author": "Hoan Luu <hoan.h.luu@drachtio.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drachtio/drachtio-mw-under-pressure/issues"
+  },
+  "homepage": "https://github.com/drachtio/drachtio-mw-under-pressure#readme",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}
