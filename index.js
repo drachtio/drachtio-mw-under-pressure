@@ -1,5 +1,6 @@
 const { eventLoopUtilization } = require('node:perf_hooks').performance;
 const { monitorEventLoopDelay } = require('node:perf_hooks');
+const debug = require('debug')('jambonz:mw-registrar');
 
 /**
  * This middleware works by intercepting imcoming SIP message leverages
@@ -54,6 +55,8 @@ module.exports = (opts) => {
 
     updateEventLoopDelay();
     updateEventLoopUtilization();
+    debug(`heapUsed: ${heapUsed}, rssBytes: ${rssBytes}, eventLoopDelay: 
+ ${eventLoopDelay}, eventLoopUtilized: ${eventLoopUtilized}`);
   }, sampleInterval);
   // clean timer automatically
   timer.unref();
