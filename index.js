@@ -13,8 +13,8 @@ const debug = require('debug')('drachtio:under-pressure');
  * @param {opts.maxHeapUsedBytes} js max js heap used bytes threshold
  * @param {opts.maxRssBytes} js max js RSS bytes threshold
  * @param {opts.maxEventLoopUtilization} js event loop utilization threshold
- * @param {opts.sipErrorCode} Optional  SIP response error code
- * @param {opts.sipErrorMessage} Optional SIP response error message
+ * @param {opts.sipStatusCode} Optional  SIP response error code
+ * @param {opts.sipReasonPhrase} Optional SIP response error message
  * @param {opts.sipHeaders} Optional  SIP response headers
  * @returns {function(req, res, next)} a drachtio srf middleware function
  */
@@ -25,8 +25,8 @@ module.exports = (opts) => {
   const maxHeapUsedBytes = opts.maxHeapUsedBytes || 0;
   const maxRssBytes = opts.maxRssBytes || 0;
   const maxEventLoopUtilization = opts.maxEventLoopUtilization || 0;
-  const sipErrorCode = opts.sipErrorCode || 503;
-  const sipErrorMessage = opts.sipErrorMessage || 'Service Unavailable';
+  const sipStatusCode = opts.sipStatusCode || 503;
+  const sipReasonPhrase = opts.sipReasonPhrase || 'Service Unavailable';
   const sipHeaders = opts.sipHeaders || {};
 
   let histogram;
@@ -108,7 +108,7 @@ module.exports = (opts) => {
 
   return function(req, res, next) {
     if (isUnderPressure()) {
-      res.send(sipErrorCode, sipErrorMessage, {headers: sipHeaders});
+      res.send(sipStatusCode, sipReasonPhrase, {headers: sipHeaders});
       return req.srf.endSession(req);
     } else {
       next();

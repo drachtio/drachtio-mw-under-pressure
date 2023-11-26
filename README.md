@@ -15,9 +15,9 @@ This middleware works by intercepting and inspecting incoming SIP requests. It l
  * @param {opts.maxHeapUsedBytes} js max js heap used bytes threshold 
  * @param {opts.maxRssBytes} js max js RSS bytes threshold 
  * @param {opts.maxEventLoopUtilization} js event loop utilization threshold 
- * @param {opts.sipErrorCode} Optional  SIP response error code
- * @param {opts.sipErrorMessage} Optional SIP response error message
- * @param {opts.sipHeaders} Optional  SIP response headers
+ * @param {opts.sipStatusCode} Optional  SIP response error code
+ * @param {opts.sipReasonPhrase} Optional SIP response error message
+ * @param {opts.sipCustomHeaders} Optional  SIP response headers
  * @returns {function(req, res, next)} a drachtio srf middleware function
  */
 ```
